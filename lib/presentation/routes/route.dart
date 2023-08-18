@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:synapsis_intern/presentation/bindings/first_page_binding.dart';
 import 'package:synapsis_intern/presentation/routes/route_name.dart';
 import 'package:synapsis_intern/presentation/screens/home/first_page.dart';
 
@@ -7,8 +8,8 @@ class Routes {
 
   static final pages = [
     GetPage(
-      name: RoutesName.firstPage,
-      page: () => const FirstPage(),
-    )
+        name: RoutesName.firstPage,
+        page: () => const FirstPage(),
+        binding: FirstPageBindings())
   ];
 }

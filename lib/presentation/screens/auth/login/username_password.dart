@@ -3,6 +3,7 @@ import 'package:flutter_login/flutter_login.dart';
 import 'package:get/get.dart';
 import 'package:synapsis_intern/getx/auth/login/user_pass_login_controller.dart';
 import 'package:synapsis_intern/getx/auth/regist/user_pass_regist_controller.dart';
+import 'package:synapsis_intern/getx/firts_page/first_page_controller.dart';
 import 'package:synapsis_intern/presentation/constants/auth/login/user_pass_login_const.dart';
 import 'package:synapsis_intern/presentation/constants/auth/regist/user_pass_regist_const.dart';
 import 'package:synapsis_intern/presentation/routes/route_name.dart';
@@ -54,7 +55,8 @@ class LoginUserPass extends StatelessWidget {
           }
         });
       },
-      onSubmitAnimationCompleted: () {
+      onSubmitAnimationCompleted: () async {
+        Get.put(FirstPageController()).getDataInfoBattery();
         Get.offNamed(RoutesName.firstPage);
       },
       onRecoverPassword: (p0) {},
