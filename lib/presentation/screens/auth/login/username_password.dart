@@ -13,6 +13,7 @@ class LoginUserPass extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final firstPageController = Get.put(FirstPageController());
     final userPassAuthLogin = Get.put(UserPassLoginState());
     final userPassAuthRegist = Get.put(UserPassRegistState());
     return FlutterLogin(
@@ -55,7 +56,10 @@ class LoginUserPass extends StatelessWidget {
         });
       },
       onSubmitAnimationCompleted: () async {
-        Get.put(FirstPageController()).getDataInfoBattery();
+        firstPageController.getDataInfoBattery();
+        firstPageController.getGyroscope();
+        firstPageController.getAccelerometer();
+        firstPageController.getMagnetometer();
         Get.offNamed(RoutesName.firstPage);
       },
       onRecoverPassword: (p0) {},
