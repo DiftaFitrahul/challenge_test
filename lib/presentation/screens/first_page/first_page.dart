@@ -12,7 +12,7 @@ class FirstPage extends StatelessWidget {
     final fisrtController = Get.find<FirstPageController>();
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
+        // automaticallyImplyLeading: false,
         title: const Text('First Page'),
       ),
       body: SingleChildScrollView(

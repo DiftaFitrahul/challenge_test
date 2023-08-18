@@ -1,3 +1,6 @@
+import 'dart:async';
+import 'dart:math';
+
 import 'package:battery_info/battery_info_plugin.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
@@ -16,6 +19,14 @@ class FirstPageController extends GetxController {
   Rx<AccelerometerModel> accelerometerModel = AccelerometerModel().obs;
   Rx<GyroscopeModel> gyroscopeModel = GyroscopeModel().obs;
   Rx<MagnetometerModel> magnetometerModel = MagnetometerModel().obs;
+
+  Rx<AccelerometerModel> accelerometerModelRefreshRate =
+      AccelerometerModel().obs;
+  Rx<GyroscopeModel> gyroscopeModelRefreshRate = GyroscopeModel().obs;
+  Rx<MagnetometerModel> magnetometerModelRefreshRate = MagnetometerModel().obs;
+  Timer? timerMagnetometer;
+  Timer? timerGyroscope;
+  Timer? timerAccelerometer;
 
   //instantiate it
 
@@ -59,13 +70,7 @@ class FirstPageController extends GetxController {
           magnetometerModel.value.Z = event.z;
         });
       },
-      onError: (error) {
-        // Logic to handle error
-        // Needed for Android in case sensor is not available
-      },
-      cancelOnError: true,
     );
-// [MagnetometerEvent (x: -23.6, y: 6.2, z: -34.9)]
   }
 
   void getGyroscope() {
@@ -77,11 +82,6 @@ class FirstPageController extends GetxController {
           gyroscopeModel.value.Z = event.z;
         });
       },
-      onError: (error) {
-        // Logic to handle error
-        // Needed for Android in case sensor is not available
-      },
-      cancelOnError: true,
     );
   }
 
@@ -94,11 +94,42 @@ class FirstPageController extends GetxController {
           accelerometerModel.value.Z = event.z;
         });
       },
-      onError: (error) {
-        // Logic to handle error
-        // Needed for Android in case sensor is not available
-      },
-      cancelOnError: true,
     );
+  }
+
+  void getMagnetometerWithRefreshRate({int second = 0}) {
+    timerMagnetometer?.cancel();
+    timerMagnetometer =
+        Timer.periodic(Duration(seconds: second), (timerMagnetometer) {
+      magnetometerModelRefreshRate.update((val) {
+        magnetometerModelRefreshRate.value.X = magnetometerModel.value.X ?? 0;
+        magnetometerModelRefreshRate.value.Y = magnetometerModel.value.Y ?? 0;
+        magnetometerModelRefreshRate.value.Z = magnetometerModel.value.Z ?? 0;
+      });
+    });
+  }
+
+  void getAccelerometerWithRefreshRate({int second = 0}) {
+    timerAccelerometer?.cancel();
+    timerAccelerometer =
+        Timer.periodic(Duration(seconds: second), (timerMagnetometer) {
+      accelerometerModelRefreshRate.update((val) {
+        accelerometerModelRefreshRate.value.X = accelerometerModel.value.X ?? 0;
+        accelerometerModelRefreshRate.value.Y = accelerometerModel.value.Y ?? 0;
+        accelerometerModelRefreshRate.value.Z = accelerometerModel.value.Z ?? 0;
+      });
+    });
+  }
+
+  void getGyroscopeWithRefreshRate({int second = 0}) {
+    timerGyroscope?.cancel();
+    timerGyroscope =
+        Timer.periodic(Duration(seconds: second), (timerMagnetometer) {
+      gyroscopeModelRefreshRate.update((val) {
+        gyroscopeModelRefreshRate.value.X = gyroscopeModel.value.X ?? 0;
+        gyroscopeModelRefreshRate.value.Y = gyroscopeModel.value.Y ?? 0;
+        gyroscopeModelRefreshRate.value.Z = gyroscopeModel.value.Z ?? 0;
+      });
+    });
   }
 }
