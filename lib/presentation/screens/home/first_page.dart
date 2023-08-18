@@ -1,4 +1,3 @@
-import 'package:battery_info/battery_info_plugin.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -9,7 +8,7 @@ class FirstPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final batteryInfoController = Get.find<FirstPageController>();
+    final fisrtController = Get.find<FirstPageController>();
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -56,6 +55,27 @@ class FirstPage extends StatelessWidget {
             const Padding(
               padding: EdgeInsets.only(top: 10),
               child: Text(
+                'Location Info',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+            ),
+            Obx(() => Text(
+                  fisrtController.getLocationLoading.value
+                      ? 'latitude: Loading...\nlongitude: Loading...'
+                      : 'latitude: ${fisrtController.locationModel.value.latitude ?? 'empty'}\nlongitude: ${fisrtController.locationModel.value.longitude ?? 'empty'}',
+                  style: TextStyle(
+                      color: Colors.blue[800],
+                      fontSize: 16,
+                      fontWeight: FontWeight.w300),
+                )),
+            ElevatedButton(
+                onPressed: () {
+                  fisrtController.getLocation();
+                },
+                child: const Text('Get Current Location')),
+            const Padding(
+              padding: EdgeInsets.only(top: 10),
+              child: Text(
                 'Battery Info',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
@@ -71,63 +91,63 @@ class FirstPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Battery capacity: ${batteryInfoController.batteryInfo.value.capacity}",
+                        "Battery capacity: ${fisrtController.batteryInfo.value.capacity}",
                         style: TextStyle(
                             color: Colors.blue[800],
                             fontSize: 16,
                             fontWeight: FontWeight.w300),
                       ),
                       Text(
-                        "Battery level: ${batteryInfoController.batteryInfo.value.level}",
+                        "Battery level: ${fisrtController.batteryInfo.value.level}",
                         style: TextStyle(
                             color: Colors.blue[800],
                             fontSize: 16,
                             fontWeight: FontWeight.w300),
                       ),
                       Text(
-                        "Charge time remaining: ${batteryInfoController.batteryInfo.value.chargeTimeRemaining}",
+                        "Charge time remaining: ${fisrtController.batteryInfo.value.chargeTimeRemaining}",
                         style: TextStyle(
                             color: Colors.blue[800],
                             fontSize: 16,
                             fontWeight: FontWeight.w300),
                       ),
                       Text(
-                        "Charging status: ${batteryInfoController.batteryInfo.value.chargingStatus}",
+                        "Charging status: ${fisrtController.batteryInfo.value.chargingStatus}",
                         style: TextStyle(
                             color: Colors.blue[800],
                             fontSize: 16,
                             fontWeight: FontWeight.w300),
                       ),
                       Text(
-                        "Current Average: ${batteryInfoController.batteryInfo.value.currentAverage}",
+                        "Current Average: ${fisrtController.batteryInfo.value.currentAverage}",
                         style: TextStyle(
                             color: Colors.blue[800],
                             fontSize: 16,
                             fontWeight: FontWeight.w300),
                       ),
                       Text(
-                        "Current now: ${batteryInfoController.batteryInfo.value.currentNow}",
+                        "Current now: ${fisrtController.batteryInfo.value.currentNow}",
                         style: TextStyle(
                             color: Colors.blue[800],
                             fontSize: 16,
                             fontWeight: FontWeight.w300),
                       ),
                       Text(
-                        "Battery health: ${batteryInfoController.batteryInfo.value.health}",
+                        "Battery health: ${fisrtController.batteryInfo.value.health}",
                         style: TextStyle(
                             color: Colors.blue[800],
                             fontSize: 16,
                             fontWeight: FontWeight.w300),
                       ),
                       Text(
-                        "Battery temperature: ${batteryInfoController.batteryInfo.value.temperature}",
+                        "Battery temperature: ${fisrtController.batteryInfo.value.temperature}",
                         style: TextStyle(
                             color: Colors.blue[800],
                             fontSize: 16,
                             fontWeight: FontWeight.w300),
                       ),
                       Text(
-                        "Battery voltage: ${batteryInfoController.batteryInfo.value.voltage}",
+                        "Battery voltage: ${fisrtController.batteryInfo.value.voltage}",
                         style: TextStyle(
                             color: Colors.blue[800],
                             fontSize: 16,
