@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'package:synapsis_intern/data/models/auth/login/user_pass_model.dart';
 import 'package:synapsis_intern/presentation/routes/route.dart';
 import 'package:synapsis_intern/presentation/screens/auth/login/username_password.dart';
 
