@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:synapsis_intern/getx/firts_page/first_page_controller.dart';
+import 'package:synapsis_intern/presentation/routes/route_name.dart';
 
 class FirstPage extends StatelessWidget {
   const FirstPage({super.key});
@@ -31,7 +32,7 @@ class FirstPage extends StatelessWidget {
                     stream: Stream.periodic(const Duration(milliseconds: 970)),
                     builder: (context, snapshot) {
                       return Text(
-                        DateFormat('hh:mm:ss').format(DateTime.now()),
+                        DateFormat('H:mm:s').format(DateTime.now()),
                         style: TextStyle(
                             color: Colors.blue[800],
                             fontSize: 16,
@@ -237,7 +238,9 @@ class FirstPage extends StatelessWidget {
                       elevation: 0,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30))),
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.toNamed(RoutesName.secondPage);
+                  },
                   child: const Text(
                     'Go To Second Page',
                     style: TextStyle(fontSize: 18),
