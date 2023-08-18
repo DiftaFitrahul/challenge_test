@@ -5,6 +5,7 @@ import 'package:synapsis_intern/getx/auth/login/user_pass_login_controller.dart'
 import 'package:synapsis_intern/getx/auth/regist/user_pass_regist_controller.dart';
 import 'package:synapsis_intern/presentation/constants/auth/login/user_pass_login_const.dart';
 import 'package:synapsis_intern/presentation/constants/auth/regist/user_pass_regist_const.dart';
+import 'package:synapsis_intern/presentation/routes/route_name.dart';
 import 'package:synapsis_intern/presentation/screens/home/home_page.dart';
 
 class LoginUserPass extends StatelessWidget {
@@ -54,7 +55,7 @@ class LoginUserPass extends StatelessWidget {
         });
       },
       onSubmitAnimationCompleted: () {
-        Get.to(() => const HomePage());
+        Get.toNamed(RoutesName.firstPage);
       },
       onRecoverPassword: (p0) {},
     );
