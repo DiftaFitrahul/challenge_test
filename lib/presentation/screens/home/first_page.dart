@@ -34,7 +34,21 @@ class FirstPage extends StatelessWidget {
                           fontWeight: FontWeight.w300),
                     );
                   },
-                ))
+                )),
+            Container(
+              padding: const EdgeInsets.all(8),
+              margin: const EdgeInsets.only(top: 10),
+              decoration: BoxDecoration(
+                  border: Border.all(color: Colors.blue, width: 1),
+                  borderRadius: BorderRadius.circular(6)),
+              child: Text(
+                "${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year}",
+                style: TextStyle(
+                    color: Colors.blue[800],
+                    fontSize: 16,
+                    fontWeight: FontWeight.w300),
+              ),
+            )
           ],
         ),
       ),
