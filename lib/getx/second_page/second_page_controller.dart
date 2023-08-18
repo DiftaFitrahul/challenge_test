@@ -1,4 +1,5 @@
 import 'package:device_info_plus/device_info_plus.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:synapsis_intern/data/models/second_page/soc_info.dart';
 
@@ -6,6 +7,8 @@ class SecondPageController extends GetxController {
   RxBool data = false.obs;
   DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
   Rx<SOCInfoModel> socModel = SOCInfoModel().obs;
+  Rx<TextEditingController> controller = TextEditingController().obs;
+  RxString dataQR = ''.obs;
 
   @override
   void onInit() async {
