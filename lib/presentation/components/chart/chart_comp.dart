@@ -31,7 +31,9 @@ class ChartComp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(children: [
       Padding(
-        padding: const EdgeInsets.only(top: 25, bottom: 5),
+        padding: const EdgeInsets.only(
+          top: 20,
+        ),
         child: Text(
           title,
           style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),

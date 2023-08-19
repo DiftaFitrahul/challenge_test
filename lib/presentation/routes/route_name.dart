@@ -3,4 +3,5 @@ class RoutesName {
   static const secondPage = '/secondPage';
   static const crudPage = '/crudPage';
   static const thirdPage = '/thirdPage';
+  static const authBioPage = '/authBioPage';
 }

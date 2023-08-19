@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:synapsis_intern/presentation/bindings/auth_local_binding.dart';
 import 'package:synapsis_intern/presentation/bindings/crud_page_binding.dart';
 import 'package:synapsis_intern/presentation/bindings/first_page_binding.dart';
 import 'package:synapsis_intern/presentation/bindings/second_page_binding.dart';
@@ -6,6 +7,7 @@ import 'package:synapsis_intern/presentation/bindings/third_page_binding.dart';
 import 'package:synapsis_intern/presentation/routes/route_name.dart';
 import 'package:synapsis_intern/presentation/screens/crud_page/crud_page.dart';
 import 'package:synapsis_intern/presentation/screens/first_page/first_page.dart';
+import 'package:synapsis_intern/presentation/screens/auth/auth_local/auth_bio_page.dart';
 import 'package:synapsis_intern/presentation/screens/second_page/second_page.dart';
 import 'package:synapsis_intern/presentation/screens/third_page/third_page.dart';
 
@@ -30,5 +32,9 @@ class Routes {
       page: () => const ThirdPage(),
       binding: ThirdPageBinding(),
     ),
+    GetPage(
+        name: RoutesName.authBioPage,
+        page: () => const AuthBiometricAndQRcode(),
+        binding: AuthLocalBinding()),
   ];
 }
