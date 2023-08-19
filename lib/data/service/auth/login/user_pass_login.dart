@@ -1,6 +1,4 @@
 import 'dart:convert';
-
-import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:synapsis_intern/data/models/auth/login/user_pass_model.dart';
 import 'package:synapsis_intern/presentation/constants/auth/login/user_pass_login_const.dart';
