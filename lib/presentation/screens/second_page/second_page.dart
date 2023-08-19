@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:synapsis_intern/getx/auth/username/username_controller.dart';
 import 'package:synapsis_intern/getx/crud_page/crud_page_controller.dart';
 import 'package:synapsis_intern/getx/firts_page/first_page_controller.dart';
 import 'package:synapsis_intern/getx/second_page/second_page_controller.dart';
-import 'package:synapsis_intern/getx/third_page/chart_controller.dart';
 import 'package:synapsis_intern/presentation/routes/route_name.dart';
 
 class SecondPage extends StatelessWidget {
@@ -17,7 +15,6 @@ class SecondPage extends StatelessWidget {
     final firstPageController = Get.find<FirstPageController>();
     final secondPageController = Get.find<SecondPageController>();
     final usernameController = Get.find<UserNameController>();
-    final chartController = Get.find<ChartController>();
     return Scaffold(
       appBar: AppBar(
         title: const Text('Second Page'),

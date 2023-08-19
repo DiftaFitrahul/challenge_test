@@ -1,10 +1,7 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:synapsis_intern/data/models/crud_page/crud_model.dart';
-import 'package:synapsis_intern/data/models/crud_page/crud_page_model.dart';
 import 'package:synapsis_intern/data/service/crud_operation/crud_service.dart';
 
 class CrudPageController extends GetxController {
