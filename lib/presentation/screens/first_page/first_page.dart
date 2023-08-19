@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:synapsis_intern/getx/auth/username/username_controller.dart';
 import 'package:synapsis_intern/getx/firts_page/first_page_controller.dart';
+import 'package:synapsis_intern/presentation/components/first_page/sensor_value.dart';
+import 'package:synapsis_intern/presentation/components/first_page/text_comp.dart';
 import 'package:synapsis_intern/presentation/routes/route_name.dart';
 
 class FirstPage extends StatelessWidget {
@@ -104,68 +106,40 @@ class FirstPage extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          "Battery capacity: ${fisrtController.batteryInfo.value.capacity}",
-                          style: TextStyle(
-                              color: Colors.blue[800],
-                              fontSize: 16,
-                              fontWeight: FontWeight.w300),
+                        TextComp(
+                          title:
+                              "Battery capacity: ${fisrtController.batteryInfo.value.capacity}",
                         ),
-                        Text(
-                          "Battery level: ${fisrtController.batteryInfo.value.level}",
-                          style: TextStyle(
-                              color: Colors.blue[800],
-                              fontSize: 16,
-                              fontWeight: FontWeight.w300),
+                        TextComp(
+                          title:
+                              "Battery level: ${fisrtController.batteryInfo.value.level}",
                         ),
-                        Text(
-                          "Charge time remaining: ${fisrtController.batteryInfo.value.chargeTimeRemaining}",
-                          style: TextStyle(
-                              color: Colors.blue[800],
-                              fontSize: 16,
-                              fontWeight: FontWeight.w300),
+                        TextComp(
+                          title:
+                              "Charge time remaining: ${fisrtController.batteryInfo.value.chargeTimeRemaining}",
                         ),
-                        Text(
-                          "Charging status: ${fisrtController.batteryInfo.value.chargingStatus}",
-                          style: TextStyle(
-                              color: Colors.blue[800],
-                              fontSize: 16,
-                              fontWeight: FontWeight.w300),
+                        TextComp(
+                          title:
+                              "Charging status: ${fisrtController.batteryInfo.value.chargingStatus}",
                         ),
-                        Text(
-                          "Current Average: ${fisrtController.batteryInfo.value.currentAverage}",
-                          style: TextStyle(
-                              color: Colors.blue[800],
-                              fontSize: 16,
-                              fontWeight: FontWeight.w300),
+                        TextComp(
+                          title:
+                              "Current Average: ${fisrtController.batteryInfo.value.currentAverage}",
                         ),
-                        Text(
-                          "Current now: ${fisrtController.batteryInfo.value.currentNow}",
-                          style: TextStyle(
-                              color: Colors.blue[800],
-                              fontSize: 16,
-                              fontWeight: FontWeight.w300),
+                        TextComp(
+                          title:
+                              "Current now: ${fisrtController.batteryInfo.value.currentNow}",
                         ),
-                        Text(
-                          "Battery health: ${fisrtController.batteryInfo.value.health}",
-                          style: TextStyle(
-                              color: Colors.blue[800],
-                              fontSize: 16,
-                              fontWeight: FontWeight.w300),
+                        TextComp(
+                            title:
+                                "Battery health: ${fisrtController.batteryInfo.value.health}"),
+                        TextComp(
+                          title:
+                              "Battery temperature: ${fisrtController.batteryInfo.value.temperature}",
                         ),
-                        Text(
-                          "Battery temperature: ${fisrtController.batteryInfo.value.temperature}",
-                          style: TextStyle(
-                              color: Colors.blue[800],
-                              fontSize: 16,
-                              fontWeight: FontWeight.w300),
-                        ),
-                        Text(
-                          "Battery voltage: ${fisrtController.batteryInfo.value.voltage}",
-                          style: TextStyle(
-                              color: Colors.blue[800],
-                              fontSize: 16,
-                              fontWeight: FontWeight.w300),
+                        TextComp(
+                          title:
+                              "Battery voltage: ${fisrtController.batteryInfo.value.voltage}",
                         ),
                       ],
                     )),
@@ -177,22 +151,10 @@ class FirstPage extends StatelessWidget {
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ),
-              Obx(
-                () => Container(
-                  padding: const EdgeInsets.all(8),
-                  margin: const EdgeInsets.only(top: 5),
-                  decoration: BoxDecoration(
-                      border: Border.all(color: Colors.blue, width: 1),
-                      borderRadius: BorderRadius.circular(6)),
-                  child: Text(
-                    'X: ${fisrtController.accelerometerModel.value.X}\nY: ${fisrtController.accelerometerModel.value.Y}\nZ: ${fisrtController.accelerometerModel.value.Z}',
-                    style: TextStyle(
-                        color: Colors.blue[800],
-                        fontSize: 16,
-                        fontWeight: FontWeight.w300),
-                  ),
-                ),
-              ),
+              Obx(() => SensorComp(
+                    title:
+                        'X: ${fisrtController.accelerometerModel.value.X}\nY: ${fisrtController.accelerometerModel.value.Y}\nZ: ${fisrtController.accelerometerModel.value.Z}',
+                  )),
               const Padding(
                 padding: EdgeInsets.only(top: 15),
                 child: Text(
@@ -200,22 +162,10 @@ class FirstPage extends StatelessWidget {
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ),
-              Obx(
-                () => Container(
-                  padding: const EdgeInsets.all(8),
-                  margin: const EdgeInsets.only(top: 5),
-                  decoration: BoxDecoration(
-                      border: Border.all(color: Colors.blue, width: 1),
-                      borderRadius: BorderRadius.circular(6)),
-                  child: Text(
-                    'X: ${fisrtController.gyroscopeModel.value.X}\nY: ${fisrtController.gyroscopeModel.value.Y}\nZ: ${fisrtController.gyroscopeModel.value.Z}',
-                    style: TextStyle(
-                        color: Colors.blue[800],
-                        fontSize: 16,
-                        fontWeight: FontWeight.w300),
-                  ),
-                ),
-              ),
+              Obx(() => SensorComp(
+                    title:
+                        'X: ${fisrtController.gyroscopeModel.value.X}\nY: ${fisrtController.gyroscopeModel.value.Y}\nZ: ${fisrtController.gyroscopeModel.value.Z}',
+                  )),
               const Padding(
                 padding: EdgeInsets.only(top: 15),
                 child: Text(
@@ -223,22 +173,10 @@ class FirstPage extends StatelessWidget {
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ),
-              Obx(
-                () => Container(
-                  padding: const EdgeInsets.all(8),
-                  margin: const EdgeInsets.only(top: 5),
-                  decoration: BoxDecoration(
-                      border: Border.all(color: Colors.blue, width: 1),
-                      borderRadius: BorderRadius.circular(6)),
-                  child: Text(
-                    'X: ${fisrtController.magnetometerModel.value.X}\nY: ${fisrtController.magnetometerModel.value.Y}\nZ: ${fisrtController.magnetometerModel.value.Z}',
-                    style: TextStyle(
-                        color: Colors.blue[800],
-                        fontSize: 16,
-                        fontWeight: FontWeight.w300),
-                  ),
-                ),
-              ),
+              Obx(() => SensorComp(
+                    title:
+                        'X: ${fisrtController.magnetometerModel.value.X}\nY: ${fisrtController.magnetometerModel.value.Y}\nZ: ${fisrtController.magnetometerModel.value.Z}',
+                  )),
               const SizedBox(
                 height: 30,
               ),

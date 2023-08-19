@@ -29,6 +29,14 @@ class ThirdPage extends StatelessWidget {
         child: Center(
             child: Obx(() => Column(
                   children: [
+                    const Padding(
+                      padding: EdgeInsets.only(top: 10, bottom: 5),
+                      child: Text(
+                        'It will show graph when you click update refresh reate in second page',
+                        style: TextStyle(
+                            fontSize: 11, fontWeight: FontWeight.w400),
+                      ),
+                    ),
                     ChartComp(
                       title: 'Magnetometer',
                       minY: -70,

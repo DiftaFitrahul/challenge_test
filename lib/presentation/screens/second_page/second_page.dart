@@ -5,6 +5,7 @@ import 'package:synapsis_intern/getx/auth/username/username_controller.dart';
 import 'package:synapsis_intern/getx/crud_page/crud_page_controller.dart';
 import 'package:synapsis_intern/getx/firts_page/first_page_controller.dart';
 import 'package:synapsis_intern/getx/second_page/second_page_controller.dart';
+import 'package:synapsis_intern/presentation/components/first_page/sensor_value.dart';
 import 'package:synapsis_intern/presentation/routes/route_name.dart';
 
 class SecondPage extends StatelessWidget {
@@ -171,22 +172,10 @@ class SecondPage extends StatelessWidget {
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ),
-              Obx(
-                () => Container(
-                  padding: const EdgeInsets.all(8),
-                  margin: const EdgeInsets.only(top: 5),
-                  decoration: BoxDecoration(
-                      border: Border.all(color: Colors.blue, width: 1),
-                      borderRadius: BorderRadius.circular(6)),
-                  child: Text(
-                    'X: ${firstPageController.accelerometerModelRefreshRate.value.X}\nY: ${firstPageController.accelerometerModelRefreshRate.value.Y}\nZ: ${firstPageController.accelerometerModelRefreshRate.value.Z}',
-                    style: TextStyle(
-                        color: Colors.blue[800],
-                        fontSize: 16,
-                        fontWeight: FontWeight.w300),
-                  ),
-                ),
-              ),
+              Obx(() => SensorComp(
+                    title:
+                        'X: ${firstPageController.accelerometerModelRefreshRate.value.X}\nY: ${firstPageController.accelerometerModelRefreshRate.value.Y}\nZ: ${firstPageController.accelerometerModelRefreshRate.value.Z}',
+                  )),
               const Padding(
                 padding: EdgeInsets.only(top: 15),
                 child: Text(
@@ -194,22 +183,10 @@ class SecondPage extends StatelessWidget {
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ),
-              Obx(
-                () => Container(
-                  padding: const EdgeInsets.all(8),
-                  margin: const EdgeInsets.only(top: 5),
-                  decoration: BoxDecoration(
-                      border: Border.all(color: Colors.blue, width: 1),
-                      borderRadius: BorderRadius.circular(6)),
-                  child: Text(
-                    'X: ${firstPageController.gyroscopeModelRefreshRate.value.X}\nY: ${firstPageController.gyroscopeModelRefreshRate.value.Y}\nZ: ${firstPageController.gyroscopeModelRefreshRate.value.Z}',
-                    style: TextStyle(
-                        color: Colors.blue[800],
-                        fontSize: 16,
-                        fontWeight: FontWeight.w300),
-                  ),
-                ),
-              ),
+              Obx(() => SensorComp(
+                    title:
+                        'X: ${firstPageController.gyroscopeModelRefreshRate.value.X}\nY: ${firstPageController.gyroscopeModelRefreshRate.value.Y}\nZ: ${firstPageController.gyroscopeModelRefreshRate.value.Z}',
+                  )),
               const Padding(
                 padding: EdgeInsets.only(top: 15),
                 child: Text(
@@ -217,22 +194,10 @@ class SecondPage extends StatelessWidget {
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ),
-              Obx(
-                () => Container(
-                  padding: const EdgeInsets.all(8),
-                  margin: const EdgeInsets.only(top: 5),
-                  decoration: BoxDecoration(
-                      border: Border.all(color: Colors.blue, width: 1),
-                      borderRadius: BorderRadius.circular(6)),
-                  child: Text(
-                    'X: ${firstPageController.magnetometerModelRefreshRate.value.X}\nY: ${firstPageController.magnetometerModelRefreshRate.value.Y}\nZ: ${firstPageController.magnetometerModelRefreshRate.value.Z}',
-                    style: TextStyle(
-                        color: Colors.blue[800],
-                        fontSize: 16,
-                        fontWeight: FontWeight.w300),
-                  ),
-                ),
-              ),
+              Obx(() => SensorComp(
+                    title:
+                        'X: ${firstPageController.magnetometerModelRefreshRate.value.X}\nY: ${firstPageController.magnetometerModelRefreshRate.value.Y}\nZ: ${firstPageController.magnetometerModelRefreshRate.value.Z}',
+                  )),
               const SizedBox(
                 height: 30,
               ),

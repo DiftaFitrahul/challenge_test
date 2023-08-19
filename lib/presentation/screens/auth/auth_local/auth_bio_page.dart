@@ -126,6 +126,14 @@ class AuthBiometricAndQRcode extends StatelessWidget {
                       Get.toNamed(RoutesName.qrScannerPage);
                     },
                     child: const Text('Scan QR')),
+                Text(
+                  'Actually i dont understand about login with QR code, \n Usually QR Code is for payment, presence, and etc \n i dont understand in how to use QR Code to login when we havent signin anymore, we know that QR Code only give us a data\nSo in this case i will use scanner to get qr data',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      color: Colors.blue[800],
+                      fontSize: 12,
+                      fontWeight: FontWeight.w400),
+                ),
               ],
             ),
           ),
