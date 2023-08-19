@@ -9,6 +9,7 @@ import 'package:synapsis_intern/data/models/first_page/battery_info.dart';
 import 'package:synapsis_intern/data/models/first_page/gyroscope.dart';
 import 'package:synapsis_intern/data/models/first_page/location.dart';
 import 'package:synapsis_intern/data/models/first_page/magnetometer.dart';
+import 'package:synapsis_intern/getx/third_page/chart_controller.dart';
 
 class FirstPageController extends GetxController {
   Rx<BatteryInfo> batteryInfo = BatteryInfo().obs;
@@ -18,6 +19,7 @@ class FirstPageController extends GetxController {
   Rx<GyroscopeModel> gyroscopeModel = GyroscopeModel().obs;
   Rx<MagnetometerModel> magnetometerModel = MagnetometerModel().obs;
 
+  RxBool startChart = false.obs;
   Rx<AccelerometerModel> accelerometerModelRefreshRate =
       AccelerometerModel().obs;
   Rx<GyroscopeModel> gyroscopeModelRefreshRate = GyroscopeModel().obs;
@@ -97,12 +99,16 @@ class FirstPageController extends GetxController {
 
   void getMagnetometerWithRefreshRate({int second = 0}) {
     timerMagnetometer?.cancel();
+
     timerMagnetometer =
         Timer.periodic(Duration(seconds: second), (timerMagnetometer) {
       magnetometerModelRefreshRate.update((val) {
         magnetometerModelRefreshRate.value.X = magnetometerModel.value.X ?? 0;
         magnetometerModelRefreshRate.value.Y = magnetometerModel.value.Y ?? 0;
         magnetometerModelRefreshRate.value.Z = magnetometerModel.value.Z ?? 0;
+        Get.put(ChartController()).magnetoStart(
+            model: magnetometerModelRefreshRate.value,
+            refreshRate: second.toDouble());
       });
     });
   }
@@ -115,6 +121,9 @@ class FirstPageController extends GetxController {
         accelerometerModelRefreshRate.value.X = accelerometerModel.value.X ?? 0;
         accelerometerModelRefreshRate.value.Y = accelerometerModel.value.Y ?? 0;
         accelerometerModelRefreshRate.value.Z = accelerometerModel.value.Z ?? 0;
+        Get.put(ChartController()).acceleroStart(
+            model: accelerometerModelRefreshRate.value,
+            refreshRate: second.toDouble());
       });
     });
   }
@@ -127,6 +136,9 @@ class FirstPageController extends GetxController {
         gyroscopeModelRefreshRate.value.X = gyroscopeModel.value.X ?? 0;
         gyroscopeModelRefreshRate.value.Y = gyroscopeModel.value.Y ?? 0;
         gyroscopeModelRefreshRate.value.Z = gyroscopeModel.value.Z ?? 0;
+        Get.put(ChartController()).gyroStart(
+            model: gyroscopeModelRefreshRate.value,
+            refreshRate: second.toDouble());
       });
     });
   }

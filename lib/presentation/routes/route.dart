@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:synapsis_intern/presentation/bindings/crud_page_binding.dart';
 import 'package:synapsis_intern/presentation/bindings/first_page_binding.dart';
 import 'package:synapsis_intern/presentation/bindings/second_page_binding.dart';
+import 'package:synapsis_intern/presentation/bindings/third_page_binding.dart';
 import 'package:synapsis_intern/presentation/routes/route_name.dart';
 import 'package:synapsis_intern/presentation/screens/crud_page/crud_page.dart';
 import 'package:synapsis_intern/presentation/screens/first_page/first_page.dart';
@@ -27,6 +28,7 @@ class Routes {
     GetPage(
       name: RoutesName.thirdPage,
       page: () => const ThirdPage(),
+      binding: ThirdPageBinding(),
     ),
   ];
 }
