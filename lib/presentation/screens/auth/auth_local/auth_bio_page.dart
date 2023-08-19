@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:synapsis_intern/getx/auth/biometric/biometric_controller.dart';
+import 'package:synapsis_intern/getx/auth/biometric/qr_sacnner_controller.dart';
+import 'package:synapsis_intern/presentation/constants/auth/auth_local/qr_scanner_status.dart';
+import 'package:synapsis_intern/presentation/routes/route_name.dart';
 
 class AuthBiometricAndQRcode extends StatelessWidget {
   const AuthBiometricAndQRcode({super.key});
@@ -8,9 +11,16 @@ class AuthBiometricAndQRcode extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final biometricController = Get.find<BiometricController>();
+    final qrScannerController = Get.find<QRScannerController>();
     return Scaffold(
       appBar: AppBar(
         title: const Text('Map GPS Page'),
+        automaticallyImplyLeading: false,
+        leading: IconButton(
+            onPressed: () {
+              Get.back();
+            },
+            icon: const Icon(Icons.arrow_back_ios)),
       ),
       body: SingleChildScrollView(
         child: Center(
@@ -97,6 +107,25 @@ class AuthBiometricAndQRcode extends StatelessWidget {
                       biometricController.authenticate();
                     },
                     child: const Text('authenticate')),
+                const SizedBox(
+                  height: 50,
+                ),
+                Obx(() => qrScannerController.qrValue.isEmpty
+                    ? const Text(
+                        'QR Result: kosong',
+                        textAlign: TextAlign.center,
+                      )
+                    : Text(
+                        'QR Result: ${qrScannerController.qrValue.value}',
+                        textAlign: TextAlign.center,
+                      )),
+                ElevatedButton(
+                    onPressed: () {
+                      qrScannerController.qrStatus.value =
+                          QRScannerStatus.start;
+                      Get.toNamed(RoutesName.qrScannerPage);
+                    },
+                    child: const Text('Scan QR')),
               ],
             ),
           ),

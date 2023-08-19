@@ -2,12 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:synapsis_intern/data/models/crud_page/crud_model.dart';
-import 'package:synapsis_intern/data/models/crud_page/crud_page_model.dart';
 import 'package:synapsis_intern/getx/auth/username/username_controller.dart';
 import 'package:synapsis_intern/getx/crud_page/crud_page_controller.dart';
-import 'package:synapsis_intern/getx/firts_page/first_page_controller.dart';
 import 'package:synapsis_intern/presentation/routes/route_name.dart';
-import 'package:synapsis_intern/presentation/screens/third_page/third_page.dart';
 
 class CrudPage extends StatelessWidget {
   const CrudPage({super.key});
@@ -21,6 +18,12 @@ class CrudPage extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: const Text('Crud Page'),
+        automaticallyImplyLeading: false,
+        leading: IconButton(
+            onPressed: () {
+              Get.back();
+            },
+            icon: const Icon(Icons.arrow_back_ios)),
       ),
       body: Center(
           child: Obx(

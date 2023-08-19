@@ -17,6 +17,12 @@ class SecondPage extends StatelessWidget {
     final usernameController = Get.find<UserNameController>();
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
+        leading: IconButton(
+            onPressed: () {
+              Get.back();
+            },
+            icon: const Icon(Icons.arrow_back_ios)),
         title: const Text('Second Page'),
       ),
       body: SingleChildScrollView(

@@ -26,6 +26,7 @@ dependencies:
   sensors_plus: ^3.0.3
   cupertino_icons: ^1.0.5
   local_auth: ^2.1.6
+  qr_code_scanner: ^1.0.1
 
 dev_dependencies:
   flutter_test:
