@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:synapsis_intern/getx/auth/username/username_controller.dart';
 import 'package:synapsis_intern/getx/firts_page/first_page_controller.dart';
 import 'package:synapsis_intern/presentation/routes/route_name.dart';
 
@@ -10,6 +11,7 @@ class FirstPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final fisrtController = Get.find<FirstPageController>();
+    final userNameController = Get.find<UserNameController>();
     return Scaffold(
       appBar: AppBar(
         // automaticallyImplyLeading: false,
@@ -23,7 +25,17 @@ class FirstPage extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
+              Obx(
+                () => Text(
+                  "Hello ${userNameController.username}",
+                  style: TextStyle(
+                      color: Colors.blue[800],
+                      fontSize: 21,
+                      fontWeight: FontWeight.w400),
+                ),
+              ),
               Container(
+                  margin: const EdgeInsets.only(top: 10),
                   padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
                       border: Border.all(color: Colors.blue, width: 1),

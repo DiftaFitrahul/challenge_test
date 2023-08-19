@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:qr_flutter/qr_flutter.dart';
+import 'package:synapsis_intern/getx/auth/username/username_controller.dart';
+import 'package:synapsis_intern/getx/crud_page/crud_page_controller.dart';
 import 'package:synapsis_intern/getx/firts_page/first_page_controller.dart';
 import 'package:synapsis_intern/getx/second_page/second_page_controller.dart';
+import 'package:synapsis_intern/presentation/routes/route_name.dart';
 
 class SecondPage extends StatelessWidget {
   const SecondPage({super.key});
@@ -12,6 +15,7 @@ class SecondPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final firstPageController = Get.find<FirstPageController>();
     final secondPageController = Get.find<SecondPageController>();
+    final usernameController = Get.find<UserNameController>();
     return Scaffold(
       appBar: AppBar(
         title: const Text('Second Page'),
@@ -103,9 +107,16 @@ class SecondPage extends StatelessWidget {
                 ),
               ),
               const Padding(
-                padding: EdgeInsets.only(top: 2, bottom: 5),
+                padding: EdgeInsets.only(top: 2),
                 child: Text(
                   'the input type is second, if user do not input anyting, it will set 0',
+                  style: TextStyle(fontSize: 11, fontWeight: FontWeight.w400),
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(bottom: 5),
+                child: Text(
+                  'the first state is null, it will change if you click update',
                   style: TextStyle(fontSize: 11, fontWeight: FontWeight.w400),
                 ),
               ),
@@ -217,8 +228,28 @@ class SecondPage extends StatelessWidget {
                 ),
               ),
               const SizedBox(
-                height: 40,
-              )
+                height: 30,
+              ),
+              ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 20, horizontal: 30),
+                      backgroundColor: Colors.green,
+                      elevation: 0,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30))),
+                  onPressed: () {
+                    Get.put(CrudPageController())
+                        .getTask(usernameController.username.value);
+                    Get.toNamed(RoutesName.crudPage);
+                  },
+                  child: const Text(
+                    'Go To CRUD Page',
+                    style: TextStyle(fontSize: 18),
+                  )),
+              const SizedBox(
+                height: 50,
+              ),
             ],
           ),
         ),

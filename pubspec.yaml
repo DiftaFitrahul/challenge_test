@@ -1,15 +1,17 @@
 name: synapsis_intern
 description: A new Flutter project.
-publish_to: 'none'
+publish_to: "none"
 version: 0.1.0
 
 environment:
-  sdk: '>=3.0.6 <4.0.0'
+  sdk: ">=3.0.6 <4.0.0"
 
 dependencies:
   battery_info: ^1.1.1
   battery_plus: ^4.0.2
+
   device_info_plus: ^9.0.3
+  fl_chart: ^0.63.0
   flutter:
     sdk: flutter
   flutter_login: ^4.2.0
@@ -22,11 +24,14 @@ dependencies:
   permission_handler: ^10.4.3
   qr_flutter: ^4.1.0
   sensors_plus: ^3.0.3
+  cupertino_icons: ^1.0.5
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
+  build_runner: ^2.4.6
+  hive_generator: ^2.0.1
 
 flutter:
   uses-material-design: true

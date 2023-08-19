@@ -3,6 +3,7 @@ import 'package:flutter_login/flutter_login.dart';
 import 'package:get/get.dart';
 import 'package:synapsis_intern/getx/auth/login/user_pass_login_controller.dart';
 import 'package:synapsis_intern/getx/auth/regist/user_pass_regist_controller.dart';
+import 'package:synapsis_intern/getx/auth/username/username_controller.dart';
 import 'package:synapsis_intern/getx/firts_page/first_page_controller.dart';
 import 'package:synapsis_intern/presentation/constants/auth/login/user_pass_login_const.dart';
 import 'package:synapsis_intern/presentation/constants/auth/regist/user_pass_regist_const.dart';
@@ -16,6 +17,7 @@ class LoginUserPass extends StatelessWidget {
     final firstPageController = Get.put(FirstPageController());
     final userPassAuthLogin = Get.put(UserPassLoginState());
     final userPassAuthRegist = Get.put(UserPassRegistState());
+    final usernameController = Get.put(UserNameController());
     return FlutterLogin(
       title: 'Username',
       userType: LoginUserType.name,
@@ -38,6 +40,7 @@ class LoginUserPass extends StatelessWidget {
           if (result == UserPassRegistResult.usernameExisted) {
             return 'Username exist';
           } else {
+            usernameController.username.value = data.name ?? '';
             return null;
           }
         });
@@ -51,6 +54,7 @@ class LoginUserPass extends StatelessWidget {
           } else if (result == UserPassLoginResult.passwordWrong) {
             return 'Password wrong';
           } else {
+            usernameController.username.value = data.name;
             return null;
           }
         });

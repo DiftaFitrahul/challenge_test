@@ -1,6 +1,4 @@
 import 'dart:async';
-import 'dart:math';
-
 import 'package:battery_info/battery_info_plugin.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';

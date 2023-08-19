@@ -3,7 +3,6 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:synapsis_intern/data/models/first_page/gyroscope.dart';
 import 'package:synapsis_intern/data/models/second_page/soc_info.dart';
-import 'package:synapsis_intern/getx/firts_page/first_page_controller.dart';
 
 class SecondPageController extends GetxController {
   RxBool data = false.obs;
