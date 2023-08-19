@@ -28,8 +28,6 @@ class FirstPageController extends GetxController {
   Timer? timerGyroscope;
   Timer? timerAccelerometer;
 
-  //instantiate it
-
   void getDataInfoBattery() async {
     BatteryInfoPlugin().androidBatteryInfoStream.listen(
       (event) {
@@ -96,6 +94,8 @@ class FirstPageController extends GetxController {
       },
     );
   }
+
+  //Below is to GET Magnetometer, Accelerometer, and Gyroscope value with update refresh rate
 
   void getMagnetometerWithRefreshRate({int second = 0}) {
     timerMagnetometer?.cancel();

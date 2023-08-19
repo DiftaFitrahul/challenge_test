@@ -1,6 +1,5 @@
 import 'package:hive/hive.dart';
 import 'package:synapsis_intern/data/models/crud_page/crud_model.dart';
-import 'package:synapsis_intern/data/models/crud_page/crud_page_model.dart';
 
 class CrudService {
   const CrudService._();
