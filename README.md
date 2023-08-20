@@ -1,3 +1,4 @@
 # synapsis_intern
 
-A new Flutter project.
+This Application use MVVM architecture with Getx state management
+
