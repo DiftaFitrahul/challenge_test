@@ -1,4 +1,4 @@
-# synapsis_intern
+# challange_test
 
 This Application use MVVM architecture with Getx state management
 
