@@ -8,6 +8,7 @@ import 'package:synapsis_intern/presentation/bindings/second_page_binding.dart';
 import 'package:synapsis_intern/presentation/bindings/third_page_binding.dart';
 import 'package:synapsis_intern/presentation/routes/route_name.dart';
 import 'package:synapsis_intern/presentation/screens/auth/auth_local/qr_scanner.dart';
+import 'package:synapsis_intern/presentation/screens/auth/login/username_password.dart';
 import 'package:synapsis_intern/presentation/screens/bonus_page/bonus_page.dart';
 import 'package:synapsis_intern/presentation/screens/crud_page/crud_page.dart';
 import 'package:synapsis_intern/presentation/screens/first_page/first_page.dart';
@@ -19,6 +20,10 @@ class Routes {
   const Routes._();
 
   static final pages = [
+    GetPage(
+      name: RoutesName.loginUserPass,
+      page: () => const LoginUserPass(),
+    ),
     GetPage(
         name: RoutesName.firstPage,
         page: () => const FirstPage(),

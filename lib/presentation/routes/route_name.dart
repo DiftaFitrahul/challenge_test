@@ -6,4 +6,5 @@ class RoutesName {
   static const authBioPage = '/authBioPage';
   static const qrScannerPage = '/qrScannerPage';
   static const bonusPage = '/bonusPage';
+  static const loginUserPass = '/loginUserPass';
 }

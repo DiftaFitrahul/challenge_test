@@ -20,8 +20,17 @@ class BonusPageController extends GetxController {
 
   @override
   void onInit() async {
-    //request camera and location
-    await Permission.camera.request();
+    //Timer to get current DateTime
+    Timer.periodic(const Duration(milliseconds: 980), (timer) {
+      dateNow.value =
+          DateFormat('EEEE, MMM d, yyyy H:mm:s').format(DateTime.now());
+    });
+
+    super.onInit();
+  }
+
+  Future<void> getLocation() async {
+    //request and location
     await Permission.location.request();
 
     //Set location accuracy
@@ -36,17 +45,7 @@ class BonusPageController extends GetxController {
       latitude.value = position?.latitude ?? 0;
       longitude.value = position?.longitude ?? 0;
     });
-
-    //Timer to get current DateTime
-    Timer.periodic(const Duration(milliseconds: 980), (timer) {
-      dateNow.value =
-          DateFormat('EEEE, MMM d, yyyy H:mm:s').format(DateTime.now());
-    });
-
-    super.onInit();
   }
-
-  void getDateTime() {}
 
   @override
   void onClose() {

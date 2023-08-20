@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:synapsis_intern/getx/auth/biometric/biometric_controller.dart';
 import 'package:synapsis_intern/getx/auth/biometric/qr_sacnner_controller.dart';
+import 'package:synapsis_intern/getx/bonus_page/bonus_page_controller.dart';
 import 'package:synapsis_intern/getx/bonus_page/camera_description_controller.dart';
 import 'package:synapsis_intern/presentation/constants/auth/auth_local/qr_scanner_status.dart';
 import 'package:synapsis_intern/presentation/routes/route_name.dart';
@@ -147,6 +148,7 @@ class AuthBiometricAndQRcode extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30))),
                     onPressed: () async {
+                      await Get.put(BonusPageController()).getLocation();
                       await Get.put(CameraInitializeController())
                           .initializeCameraDescription()
                           .then((value) => Get.toNamed(RoutesName.bonusPage));

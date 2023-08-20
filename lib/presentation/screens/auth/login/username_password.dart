@@ -64,7 +64,7 @@ class LoginUserPass extends StatelessWidget {
         firstPageController.getGyroscope();
         firstPageController.getAccelerometer();
         firstPageController.getMagnetometer();
-        Get.toNamed(RoutesName.firstPage);
+        Get.offNamed(RoutesName.firstPage);
       },
       onRecoverPassword: (p0) {},
     );

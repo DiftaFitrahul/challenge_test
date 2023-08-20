@@ -18,6 +18,13 @@ class FirstPage extends StatelessWidget {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: const Text('First Page'),
+        actions: [
+          IconButton(
+              onPressed: () {
+                Get.offAllNamed(RoutesName.loginUserPass);
+              },
+              icon: const Icon(Icons.logout))
+        ],
       ),
       body: SingleChildScrollView(
         child: Center(
